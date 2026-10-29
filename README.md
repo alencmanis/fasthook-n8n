@@ -4,11 +4,13 @@ Repository: [alencmanis/fasthook-n8n](https://github.com/alencmanis/fasthook-n8n
 
 Use [FastHook](https://www.fasthook.io) requests, delivery traces and replay in [n8n](https://n8n.io/). This package integrates FastHook itself, not the unrelated apps in its catalog.
 
-**Status: local development preview.** Not published to npm or approved for n8n Cloud. The package is marked private until release prerequisites are complete.
+**Status: early release for self-hosted n8n.** Not verified for n8n Cloud. Version 0.1.0 is released directly to npm without GitHub provenance; a future release through GitHub Actions is required before Cloud verification.
 
 ## Installation
 
-Use Node.js 24 and npm:
+In your self-hosted n8n instance, open **Settings > Community Nodes > Install**, enter `n8n-nodes-fasthook`, review the community-package notice and install. Select a FastHook project API key in the new node's credentials.
+
+For local development, clone the repository and use Node.js 24 and npm:
 
 ```sh
 npm ci
@@ -18,7 +20,7 @@ npm run lint
 npm run dev -- --custom-user-folder ../.tmp-n8n-fasthook-dev
 ```
 
-The official n8n CLI starts a local development instance with this package loaded. Keep its user-data folder outside the package to avoid a circular directory junction during build. After npm publication, self-hosted owners can install `n8n-nodes-fasthook` in Settings > Community Nodes. Cloud availability requires n8n verification.
+The official n8n CLI starts a local development instance with this package loaded. Keep its user-data folder outside the package to avoid a circular directory junction during build. Cloud availability requires n8n verification.
 
 ## Credentials
 
@@ -68,4 +70,4 @@ When running with the official CLI's local custom-node loader, import [test/fixt
 
 Built against n8n-workflow 2.16.0 with the official @n8n/node-cli 0.55.2. Runtime code has no external dependencies beyond n8n's workflow peer API and no filesystem or environment access. The programmatic implementation coordinates cursor requests and incomplete-page checks with polling state.
 
-Local tests cover routing, item linking, safe errors, pagination and polling. An authenticated run on n8n 2.45.6 verified credential storage, New Request polling, Get Delivery Trace, deduplication and stopping after unpublishing; see [the test record](test/REAL-TEST-2026-10-29.md) for evidence and remaining coverage. See [RELEASE.md](RELEASE.md) for publication prerequisites. MIT licensed.
+Local tests cover routing, item linking, safe errors, pagination and polling. An authenticated run on n8n 2.45.6 verified credential storage, New Request polling, Get Delivery Trace, deduplication and stopping after unpublishing; see [the test record](https://github.com/alencmanis/fasthook-n8n/blob/main/test/REAL-TEST-2026-10-29.md) for evidence and remaining coverage. Live delivery retries and key revocation are not yet covered by that test. See [RELEASE.md](RELEASE.md) for publication prerequisites. MIT licensed.
