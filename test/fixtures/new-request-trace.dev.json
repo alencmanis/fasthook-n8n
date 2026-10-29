@@ -1,0 +1,58 @@
+{
+  "name": "FICTIONAL FastHook n8n C7",
+  "active": false,
+  "nodes": [
+    {
+      "id": "fasthook-trigger",
+      "name": "FastHook Trigger",
+      "type": "CUSTOM.fastHookTrigger",
+      "typeVersion": 1,
+      "position": [
+        300,
+        300
+      ],
+      "parameters": {
+        "event": "newRequest",
+        "sourceId": "",
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "fasthook-trace",
+      "name": "Get Delivery Trace",
+      "type": "CUSTOM.fastHook",
+      "typeVersion": 1,
+      "position": [
+        560,
+        300
+      ],
+      "parameters": {
+        "resource": "request",
+        "operation": "trace",
+        "resourceId": "={{$json.id}}"
+      }
+    }
+  ],
+  "connections": {
+    "FastHook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Delivery Trace",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

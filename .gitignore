@@ -1,0 +1,14 @@
+dist
+node_modules
+*.log
+*.tgz
+*.tsbuildinfo
+.local-n8n/
+pack-manifest.json
+.env
+.env.*
+.dev.vars
+.npmrc
+*.sqlite
+*.sqlite-*
+.local-test-evidence.md

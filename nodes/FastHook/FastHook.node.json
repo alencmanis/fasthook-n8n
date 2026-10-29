@@ -1,0 +1,10 @@
+{
+	"node": "n8n-nodes-fasthook.fastHook",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Development"],
+	"resources": {
+		"credentialDocumentation": [{ "url": "https://www.fasthook.io" }],
+		"primaryDocumentation": [{ "url": "https://www.fasthook.io" }]
+	}
+}
